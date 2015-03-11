@@ -5,7 +5,7 @@ window.GeocodingService = (function() {
 		reverseGeocodeApiEndpoint = 'http://open.mapquestapi.com/geocoding/v1/reverse';
 
 	function GeocodingService(options) {
-		this.options = $.extend({}, options, defaultOptions);
+		this.options = $.extend({}, defaultOptions, options);
 	}
 
 	GeocodingService.prototype.getAddressByLatLng = function(latLng) {
