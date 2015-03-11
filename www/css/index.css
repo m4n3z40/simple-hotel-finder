@@ -60,3 +60,107 @@ body {
     width: 100%;
     height: 100%;
 }
+
+.leaflet-control-attribution {
+    width: 75%;
+}
+
+/**
+ * Modal de detalhe de hotel
+ */
+.hotel-details-modal {
+    position: absolute;
+    z-index: 9999;
+    background: #fff;
+    top: 0;
+    right: 0;
+    width: 85%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.hotel-details-modal .close-button {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    display: block;
+    border-radius: 40px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    line-height: 34px;
+    font-size: 140%;
+    background-color: #003965;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    box-shadow: 2px 3px 2px rgba(0,0,0,.7);
+    border: 1px solid #005699;
+}
+
+.hotel-details-modal .close-button:active {
+    background-color: #005699;
+}
+
+.hotel-details-modal figure {
+    margin: 0;
+}
+
+.hotel-details-modal img {
+    width: 100%;
+    border-bottom: 2px solid #f58230;
+}
+
+.hotel-details-modal figcaption {
+    font-weight: bold;
+    font-size: 150%;
+    padding: 5px 10px;
+}
+
+.hotel-details-modal .info-wrapper {
+    padding: 0 10px;
+}
+
+.hotel-details-modal address {
+}
+
+.hotel-details-modal .quality {
+    margin-top: 5px;
+}
+
+.hotel-details-modal .price {
+    margin-top: 5px;
+}
+
+.hotel-details-modal .price .text {
+
+}
+
+.hotel-details-modal .price .value {
+    color: #55a027;
+    font-weight: bold;
+}
+
+.hotel-details-modal .actions {
+    margin-top: 10px;
+    padding: 0 10px;
+}
+
+.hotel-details-modal .actions .book-hotel {
+    display: block;
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #f58230;
+    font-weight: bold;
+    color: #fff;
+    font-size: 120%;
+    border-radius: 3px;
+    border: 1px solid #e5660b;   
+}
+
+.hotel-details-modal .actions .book-hotel:active {
+    background-color: #e5660b;
+}

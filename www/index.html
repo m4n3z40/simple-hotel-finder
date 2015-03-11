@@ -34,6 +34,26 @@
     <body>
         <div class="app">
             <div class="map" id="hotelsMap"></div>
+
+            <div class="hotel-details-modal" id="hotelDetailsModal">
+                <a href="" class="close-button">x</a>
+                <figure>
+                    <image></image>
+                    <figcaption></figcaption>
+                </figure>
+                <div class="info-wrapper">
+                    <address></address>
+                    <div class="quality"></div>
+                    <div class="price">
+                        <span class="text">Rooms starting at</span>
+                        <span class="value"></span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a href="" class="book-hotel">Book hotel</a>
+                </div>
+            </div>
+            <!-- /.#hotelDetailsModal -->
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>
@@ -42,6 +62,7 @@
         <script type="text/javascript" src="js/hotels-map.js"></script>
         <script type="text/javascript" src="js/geocoding-service.js"></script>
         <script type="text/javascript" src="js/hotels-search-service.js"></script>
+        <script type="text/javascript" src="js/hotel-details-modal.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();

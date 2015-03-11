@@ -27,18 +27,42 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/leaflet.css" />
+        <link rel="stylesheet" type="text/css" href="css/leaflet.markercluster.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>HotelFinder - Ache o hotel mais próximo de você!</title>
     </head>
     <body>
         <div class="app">
             <div class="map" id="hotelsMap"></div>
+
+            <div class="hotel-details-modal" id="hotelDetailsModal">
+                <a href="" class="close-button">x</a>
+                <figure>
+                    <image></image>
+                    <figcaption></figcaption>
+                </figure>
+                <div class="info-wrapper">
+                    <address></address>
+                    <div class="quality"></div>
+                    <div class="price">
+                        <span class="text">Rooms starting at</span>
+                        <span class="value"></span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a href="" class="book-hotel">Book hotel</a>
+                </div>
+            </div>
+            <!-- /.#hotelDetailsModal -->
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/leaflet.js"></script>
+        <script type="text/javascript" src="js/leaflet.markercluster.js"></script>
+        <script type="text/javascript" src="js/hotels-map.js"></script>
         <script type="text/javascript" src="js/geocoding-service.js"></script>
         <script type="text/javascript" src="js/hotels-search-service.js"></script>
+        <script type="text/javascript" src="js/hotel-details-modal.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();

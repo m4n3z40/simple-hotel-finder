@@ -1,14 +1,30 @@
 window.app = (function() {
-    var map = null;
+    var map = null,
+        hotelDetailsModal = null;
 
+    /**
+     * Initializes the application
+     * 
+     * @return {void}
+     */
     function initialize() {
         bindEvents();
     }
     
+    /**
+     * Binds the necessary event handlers
+     * 
+     * @return {void}
+     */
     function bindEvents() {
-        document.addEventListener('deviceready', onDeviceReady, false);
+        document.addEventListener('DOMContentLoaded', onDeviceReady, false);
     }
     
+    /**
+     * Executed when device is ready to work, thats when we start everything
+     * 
+     * @return {void}
+     */
     function onDeviceReady() {
         map = new HotelsMap({
             onLocationChangeHandler: onLocationChangeHandler,
@@ -16,22 +32,43 @@ window.app = (function() {
             onHotelClickHandler: onHotelClickHandler
         });
 
+        hotelDetailsModal = new HotelDetailsModal();
+
         map.initialize();
         map.startWatchingLocation();
     }
 
+    /**
+     * The location change handler, on the first position catch it calls the hotel search service
+     * 
+     * @param  {Array} latLng
+     * @param  {Array} lastLatLng
+     * @return {void}
+     */
     function onLocationChangeHandler(latLng, lastLatLng) {
         //If its first user postion catch
         if (!lastLatLng) {
-            startRetrievingHotels(latLng);
+            retrieveHotels(latLng);
         }
     }
 
+    /**
+     * The location error handler, just shows a alert message
+     * 
+     * @param  {Error} error
+     * @return {void}
+     */
     function onLocationErrorHandler(error) {
         alert(error.message);
     }
 
-    function startRetrievingHotels(latLng) {
+    /**
+     * Retrieves the hotel when we know the user`s position
+     * 
+     * @param  {Array} latLng
+     * @return {void}
+     */
+    function retrieveHotels(latLng) {
         var geocodingService = new GeocodingService();
 
         geocodingService
@@ -56,8 +93,15 @@ window.app = (function() {
             .then(map.addHotelsToMap.bind(map));
     }
 
-    function onHotelClickHandler(hotel, marker, i) {
-        alert(hotel.name);
+    /**
+     * Tap handler the hotel markers, opens the details modal
+     * 
+     * @param  {Object} hotel
+     * @param  {L.Marker} marker
+     * @return {void}
+     */
+    function onHotelClickHandler(hotel, marker) {
+        hotelDetailsModal.showHotel(hotel);
     }
 
     //Exposed App methods

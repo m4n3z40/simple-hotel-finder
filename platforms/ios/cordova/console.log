@@ -28,3 +28,18 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
 2015-03-11 01:17:30.953 SimpleHotelFinder[2193:16235] Resetting plugins due to page load.
 2015-03-11 01:17:31.121 SimpleHotelFinder[2193:16235] Finished load of: file:///Users/abaptista/Library/Developer/CoreSimulator/Devices/5124B10D-8C45-4AB6-A6AD-8F591CB156F6/data/Containers/Bundle/Application/6105E9FF-9125-4261-A6DF-7B811E88E23C/SimpleHotelFinder.app/www/index.html
 2015-03-11 01:17:31.176 SimpleHotelFinder[2193:16235] locationManager::didFailWithError (null)
+2015-03-11 19:24:54.601 SimpleHotelFinder[20082:3320489] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/abaptista/Library/Developer/CoreSimulator/Devices/1D3F4025-A031-4DE9-A4B3-1BD375AF8C6E/data/Containers/Data/Application/0FC0FBD5-40C0-476D-8B87-50E57A1CA664/Library/Cookies/Cookies.binarycookies
+2015-03-11 19:24:54.830 SimpleHotelFinder[20082:3320489] Apache Cordova native platform version 3.8.0 is starting.
+2015-03-11 19:24:54.830 SimpleHotelFinder[20082:3320489] Multi-tasking -> Device: YES, App: YES
+2015-03-11 19:24:54.844 SimpleHotelFinder[20082:3320489] Unlimited access to network resources
+2015-03-11 19:24:54.855 SimpleHotelFinder[20082:3320489] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-03-11 19:24:55.605 SimpleHotelFinder[20082:3320489] Resetting plugins due to page load.
+2015-03-11 19:24:57.023 SimpleHotelFinder[20082:3320489] Finished load of: file:///Users/abaptista/Library/Developer/CoreSimulator/Devices/1D3F4025-A031-4DE9-A4B3-1BD375AF8C6E/data/Containers/Bundle/Application/1034E252-7499-4316-BE22-BC48749D377F/SimpleHotelFinder.app/www/index.html
+2015-03-11 19:26:05.386 SimpleHotelFinder[20082:3332632] Terminating since there is no system app.

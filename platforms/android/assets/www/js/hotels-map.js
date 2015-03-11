@@ -16,8 +16,19 @@ window.HotelsMap = (function() {
         	onHotelClickHandler: emptyFn
         };
 
+    /**
+     * An empty function
+     * 
+     * @return {void}
+     */
     function emptyFn() {}
 
+    /**
+     * Wrapper for the map behaviors
+     *
+     * @class
+     * @param {Object} options
+     */
     function HotelsMap(options) {
 		this.options = $.extend({}, defaultOptions, options);
 
@@ -28,14 +39,22 @@ window.HotelsMap = (function() {
 		this.hotelMarkers = null;
 	}
 
+	/**
+	 * Inicializes the map on the screen
+	 * 
+	 * @return {void}
+	 */
 	HotelsMap.prototype.initialize = function() {
 		var options = this.options,
 			mapTilesUrl = mapTilesLayerUrl.replace('{mapID}', options.mapBoxMapID);
 
         this.map = L.map(options.mapElementID, {
             center: options.defaultLatLng,
-            zoom: 8
+            zoom: 8,
+            zoomControl: false
         });
+
+        L.control.zoom({ position:'bottomleft' }).addTo(this.map);
 
         var tileLayer = L.tileLayer(mapTilesUrl + '?access_token=' + options.mapBoxAccessToken, {
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, '
@@ -47,6 +66,11 @@ window.HotelsMap = (function() {
         this.map.addLayer(tileLayer);
     }
 
+    /**
+     * Adds a list of hotels as markers on the map
+     * 
+     * @param {Array} hotels
+     */
     HotelsMap.prototype.addHotelsToMap = function(hotels) {
         this.foundHotels = hotels;
         this.hotelMarkers = [];
@@ -67,6 +91,13 @@ window.HotelsMap = (function() {
         this.map.addLayer(markers);
     }
 
+    /**
+     * Starts watching the position of the user
+     * 
+     * @param  {Function} onSuccess
+     * @param  {Function} onError
+     * @return {void}
+     */
     HotelsMap.prototype.startWatchingLocation = function(onSuccess, onError) {
     	if (typeof onSuccess === 'function') {
     		this._tempLocationChangeHandler = onSuccess;
@@ -86,6 +117,12 @@ window.HotelsMap = (function() {
 	    );
     }
 
+    /**
+     * Handler for a position change, updates the user pin on the map and fires the locationChange event
+     * 
+     * @param  {Object} position
+     * @return {void}
+     */
     HotelsMap.prototype._onPositionChange = function(position) {
     	var lastLatLng = this.latLng;
 
@@ -100,6 +137,12 @@ window.HotelsMap = (function() {
         }
     }
 
+    /**
+     * Handler for a position error, fires the locationError event
+     * 
+     * @param  {Error} error
+     * @return {void}
+     */
     HotelsMap.prototype._onPositionError = function(error) {
     	this.options.onLocationErrorHandler(error, this.latLng);
 
@@ -109,6 +152,11 @@ window.HotelsMap = (function() {
         }
     }
 
+    /**
+     * Updates the user pin on the map
+     * 
+     * @return {void}
+     */
     HotelsMap.prototype._updateUserPosition = function() {
         //If its first user postion catch
         if (!this.userMarker) {

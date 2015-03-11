@@ -1,12 +1,24 @@
 window.HotelsSearchService = (function() {
-	var hotelsPlacesAutocompleteEndpointUrl = 'http://localhost:3000/places',
-		hotelsSearchEndpointUrl = 'http://localhost:3000/hotels',
+	var hotelsPlacesAutocompleteEndpointUrl = 'https://simple-hotel-finder.herokuapp.com/places',
+		hotelsSearchEndpointUrl = 'https://simple-hotel-finder.herokuapp.com/hotels',
 		defaultOptions = {};
 
+	/**
+	 * Service wrapper for the search of hotels powered by Hotel Urbano
+	 *
+	 * @class
+	 * @param {Object} options
+	 */
 	function HotelsSearchService(options) {
-		this.options = $.extend({}, options, defaultOptions);
+		this.options = $.extend({}, defaultOptions, options);
 	}
 
+	/**
+	 * Returns a list of places for a given name
+	 * 
+	 * @param  {string} name
+	 * @return {$.Deferred}
+	 */
 	HotelsSearchService.prototype.getPlacesByName = function(name) {
 		return $.ajax({
 	       type: 'GET',
@@ -16,6 +28,12 @@ window.HotelsSearchService = (function() {
 	    });
 	}
 
+	/**
+	 * Returns a list of hotels for a given placeID
+	 * 
+	 * @param  {int} placeID
+	 * @return {$.Deferred}
+	 */
 	HotelsSearchService.prototype.getHotelsByPlaceID = function(placeID) {
 		return $.ajax({
 	       type: 'GET',
@@ -24,15 +42,23 @@ window.HotelsSearchService = (function() {
 	    });
 	}
 
+	/**
+	 * Return a list of hotels for a given city name
+	 * 
+	 * @param  {string} cityName
+	 * @return {$.Deferred}
+	 */
 	HotelsSearchService.prototype.getHotelsByCityName = function(cityName) {
 		var me = this;
 
 		return me.getPlacesByName(cityName)
+
 				 .then(function(response) {
 				 	return response.content[0]
 				 }, function() {
 				   	console.warn('Não foi possível recuperar locais no autocomplete para o texto: ' + cityName)
 				 })
+
 				 .then(function(place) {
 				 	return me.getHotelsByPlaceID(place.id);
 				 });

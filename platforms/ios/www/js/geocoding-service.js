@@ -4,10 +4,22 @@ window.GeocodingService = (function() {
 		},
 		reverseGeocodeApiEndpoint = 'http://open.mapquestapi.com/geocoding/v1/reverse';
 
+	/**
+	 * Service wrapper for the mapquest geolocation API
+	 * 
+	 * @class
+	 * @param {Object} options
+	 */
 	function GeocodingService(options) {
-		this.options = $.extend({}, options, defaultOptions);
+		this.options = $.extend({}, defaultOptions, options);
 	}
 
+	/**
+	 * Returns the address regarding the given latLng
+	 * 
+	 * @param  {Array} latLng
+	 * @return {$.Deferred}
+	 */
 	GeocodingService.prototype.getAddressByLatLng = function(latLng) {
 		return $.ajax({
 	       type: 'GET',
