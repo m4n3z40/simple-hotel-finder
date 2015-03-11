@@ -6,13 +6,14 @@ window.app = (function() {
     }
     
     function bindEvents() {
-        document.addEventListener('DOMContentLoaded', onDeviceReady, false);
+        document.addEventListener('deviceready', onDeviceReady, false);
     }
     
     function onDeviceReady() {
         map = new HotelsMap({
             onLocationChangeHandler: onLocationChangeHandler,
-            onLocationErrorHandler: onLocationErrorHandler
+            onLocationErrorHandler: onLocationErrorHandler,
+            onHotelClickHandler: onHotelClickHandler
         });
 
         map.initialize();
@@ -51,8 +52,12 @@ window.app = (function() {
             }, function() {
                 alert('Não foram encontrados nenhum hotel perto de você, tente novamente mais tarde.');
             })
-            
+
             .then(map.addHotelsToMap.bind(map));
+    }
+
+    function onHotelClickHandler(hotel, marker, i) {
+        alert(hotel.name);
     }
 
     //Exposed App methods
