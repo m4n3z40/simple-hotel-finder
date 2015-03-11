@@ -17,7 +17,7 @@ window.app = (function() {
      * @return {void}
      */
     function bindEvents() {
-        document.addEventListener('DOMContentLoaded', onDeviceReady, false);
+        document.addEventListener('deviceready', onDeviceReady, false);
     }
     
     /**
