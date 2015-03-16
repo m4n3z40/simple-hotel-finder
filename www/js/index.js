@@ -1,7 +1,8 @@
 window.app = (function() {
     var map = null,
         hotelDetailsModal = null,
-        whereAmIButton = null;
+        whereAmIButton = null,
+        notificationManager = null;
 
     /**
      * Initializes the application
@@ -18,7 +19,7 @@ window.app = (function() {
      * @return {void}
      */
     function bindEvents() {
-        document.addEventListener('DOMContentLoaded', onDeviceReady, false);
+        document.addEventListener('deviceready', onDeviceReady, false);
     }
 
     /**
@@ -27,6 +28,8 @@ window.app = (function() {
      * @return {void}
      */
     function onDeviceReady() {
+        notificationManager = new NotificationManager();
+
         map = new HotelsMap({
             onLocationChangeHandler: onLocationChangeHandler,
             onLocationErrorHandler: onLocationErrorHandler,
@@ -37,6 +40,9 @@ window.app = (function() {
         hotelDetailsModal = new HotelDetailsModal();
 
         map.initialize();
+
+        notificationManager.show('Trying to get your current position...');
+
         map.startWatchingLocation();
     }
 
@@ -50,6 +56,8 @@ window.app = (function() {
     function onLocationChangeHandler(latLng, lastLatLng) {
         //If its first user postion catch
         if (!lastLatLng) {
+            notificationManager.show('Got your position. Retrieving hotels near you...');
+
             retrieveHotels(latLng);
         }
     }
@@ -83,16 +91,20 @@ window.app = (function() {
 
                 return hotelsService.getHotelsByCityName(cityName);
             }, function() {
-                alert('Houve um erro a descobrir em que estado você está, tente novamente mais tarde.');
+                notificationManager.show('There was an error while trying to get your current position.');
             })
 
             .then(function(response) {
                 return response.content.hotels;
             }, function() {
-                alert('Não foram encontrados nenhum hotel perto de você, tente novamente mais tarde.');
+                notificationManager.show('No hotels found in your area.');
             })
 
-            .then(map.addHotelsToMap.bind(map));
+            .then(map.addHotelsToMap.bind(map))
+
+            .then(function() {
+                notificationManager.hide();
+            });
     }
 
     /**
