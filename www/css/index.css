@@ -39,13 +39,13 @@ body {
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 @-webkit-keyframes fade {
     from { opacity: 1.0; }
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
@@ -66,9 +66,32 @@ body {
 }
 
 /**
+ * Botão de localizar usuário
+ */
+.whereami-button {
+    position: absolute;
+    z-index: 9999;
+    left: 5px;
+    bottom: 83px;
+    height: 32px;
+    width: 32px;
+    display: block;
+    background: #fff;
+    border-radius: 40px;
+    padding: 2px;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+}
+
+.whereami-button:active {
+    background: #F4F4F4;
+}
+
+/**
  * Modal de detalhe de hotel
  */
 .hotel-details-modal {
+    display: none;
     position: absolute;
     z-index: 9999;
     background: #fff;
@@ -158,7 +181,7 @@ body {
     color: #fff;
     font-size: 120%;
     border-radius: 3px;
-    border: 1px solid #e5660b;   
+    border: 1px solid #e5660b;
 }
 
 .hotel-details-modal .actions .book-hotel:active {

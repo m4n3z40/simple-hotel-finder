@@ -1,28 +1,29 @@
 window.app = (function() {
     var map = null,
-        hotelDetailsModal = null;
+        hotelDetailsModal = null,
+        whereAmIButton = null;
 
     /**
      * Initializes the application
-     * 
+     *
      * @return {void}
      */
     function initialize() {
         bindEvents();
     }
-    
+
     /**
      * Binds the necessary event handlers
-     * 
+     *
      * @return {void}
      */
     function bindEvents() {
-        document.addEventListener('deviceready', onDeviceReady, false);
+        document.addEventListener('DOMContentLoaded', onDeviceReady, false);
     }
-    
+
     /**
      * Executed when device is ready to work, thats when we start everything
-     * 
+     *
      * @return {void}
      */
     function onDeviceReady() {
@@ -32,6 +33,7 @@ window.app = (function() {
             onHotelClickHandler: onHotelClickHandler
         });
 
+        whereAmIButton = new WhereAmIButton({ mapInstance: map });
         hotelDetailsModal = new HotelDetailsModal();
 
         map.initialize();
@@ -40,7 +42,7 @@ window.app = (function() {
 
     /**
      * The location change handler, on the first position catch it calls the hotel search service
-     * 
+     *
      * @param  {Array} latLng
      * @param  {Array} lastLatLng
      * @return {void}
@@ -54,7 +56,7 @@ window.app = (function() {
 
     /**
      * The location error handler, just shows a alert message
-     * 
+     *
      * @param  {Error} error
      * @return {void}
      */
@@ -64,7 +66,7 @@ window.app = (function() {
 
     /**
      * Retrieves the hotel when we know the user`s position
-     * 
+     *
      * @param  {Array} latLng
      * @return {void}
      */
@@ -95,7 +97,7 @@ window.app = (function() {
 
     /**
      * Tap handler the hotel markers, opens the details modal
-     * 
+     *
      * @param  {Object} hotel
      * @param  {L.Marker} marker
      * @return {void}
