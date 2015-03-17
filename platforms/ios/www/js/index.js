@@ -1,46 +1,55 @@
 window.app = (function() {
     var map = null,
-        hotelDetailsModal = null;
+        hotelDetailsModal = null,
+        whereAmIButton = null,
+        notificationManager = null;
 
     /**
      * Initializes the application
-     * 
+     *
      * @return {void}
      */
     function initialize() {
         bindEvents();
     }
-    
+
     /**
      * Binds the necessary event handlers
-     * 
+     *
      * @return {void}
      */
     function bindEvents() {
-        document.addEventListener('DOMContentLoaded', onDeviceReady, false);
+        document.addEventListener('deviceready', onDeviceReady, false);
     }
-    
+
     /**
      * Executed when device is ready to work, thats when we start everything
-     * 
+     *
      * @return {void}
      */
     function onDeviceReady() {
-        map = new HotelsMap({
-            onLocationChangeHandler: onLocationChangeHandler,
-            onLocationErrorHandler: onLocationErrorHandler,
-            onHotelClickHandler: onHotelClickHandler
-        });
+        notificationManager = new NotificationManager();
 
         hotelDetailsModal = new HotelDetailsModal();
 
+        map = new HotelsMap({
+            onLocationChangeHandler: onLocationChangeHandler,
+            onLocationErrorHandler: onLocationErrorHandler,
+            onHotelClickHandler: hotelDetailsModal.showHotel.bind(hotelDetailsModal)
+        });
+
+        whereAmIButton = new WhereAmIButton({ mapInstance: map });
+
         map.initialize();
+
+        notificationManager.show('Trying to get your current position...');
+
         map.startWatchingLocation();
     }
 
     /**
      * The location change handler, on the first position catch it calls the hotel search service
-     * 
+     *
      * @param  {Array} latLng
      * @param  {Array} lastLatLng
      * @return {void}
@@ -48,23 +57,25 @@ window.app = (function() {
     function onLocationChangeHandler(latLng, lastLatLng) {
         //If its first user postion catch
         if (!lastLatLng) {
+            notificationManager.show('Got your position. Retrieving hotels near you...');
+
             retrieveHotels(latLng);
         }
     }
 
     /**
      * The location error handler, just shows a alert message
-     * 
+     *
      * @param  {Error} error
      * @return {void}
      */
     function onLocationErrorHandler(error) {
-        alert(error.message);
+        notificationManager.show(error.message);
     }
 
     /**
      * Retrieves the hotel when we know the user`s position
-     * 
+     *
      * @param  {Array} latLng
      * @return {void}
      */
@@ -81,27 +92,20 @@ window.app = (function() {
 
                 return hotelsService.getHotelsByCityName(cityName);
             }, function() {
-                alert('Houve um erro a descobrir em que estado você está, tente novamente mais tarde.');
+                notificationManager.show('There was an error while trying to get your current position.');
             })
 
             .then(function(response) {
                 return response.content.hotels;
             }, function() {
-                alert('Não foram encontrados nenhum hotel perto de você, tente novamente mais tarde.');
+                notificationManager.show('No hotels found in your area.');
             })
 
-            .then(map.addHotelsToMap.bind(map));
-    }
+            .then(map.addHotelsToMap.bind(map))
 
-    /**
-     * Tap handler the hotel markers, opens the details modal
-     * 
-     * @param  {Object} hotel
-     * @param  {L.Marker} marker
-     * @return {void}
-     */
-    function onHotelClickHandler(hotel, marker) {
-        hotelDetailsModal.showHotel(hotel);
+            .then(function() {
+                notificationManager.hide();
+            });
     }
 
     //Exposed App methods

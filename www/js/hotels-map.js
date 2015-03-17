@@ -6,9 +6,9 @@ window.HotelsMap = (function() {
         	defaultLatLng: [-22.9112728, -43.4484478], //Rio de janeiro
         	hotelIcon: L.icon({
 	            iconUrl: 'img/hotel-marker-icon.png',
-	            iconSize:     [38, 34], // size of the icon
-	            iconAnchor:   [19, 17], // point of the icon which will correspond to marker's location
-	            popupAnchor:  [-3, -35] // point from which the popup should open relative to the iconAnchor
+	            iconSize:     [25, 41], // size of the icon
+	            iconAnchor:   [12.5, 41], // point of the icon which will correspond to marker's location
+	            popupAnchor:  [-3, -43] // point from which the popup should open relative to the iconAnchor
 	        }),
         	mapElementID: 'hotelsMap',
         	onLocationChangeHandler: emptyFn,

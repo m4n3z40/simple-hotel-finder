@@ -3,7 +3,7 @@ module.exports = [];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "org.apache.cordova.geolocation": "0.3.12"
+    "org.apache.cordova.geolocation": "0.3.13-dev"
 }
 // BOTTOM OF METADATA
 });

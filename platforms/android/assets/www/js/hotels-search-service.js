@@ -15,7 +15,7 @@ window.HotelsSearchService = (function() {
 
 	/**
 	 * Returns a list of places for a given name
-	 * 
+	 *
 	 * @param  {string} name
 	 * @return {$.Deferred}
 	 */
@@ -26,11 +26,11 @@ window.HotelsSearchService = (function() {
 	        data: {texto: name},
 	        dataType: 'json'
 	    });
-	}
+	};
 
 	/**
 	 * Returns a list of hotels for a given placeID
-	 * 
+	 *
 	 * @param  {int} placeID
 	 * @return {$.Deferred}
 	 */
@@ -40,11 +40,11 @@ window.HotelsSearchService = (function() {
 	        url: hotelsSearchEndpointUrl + '/' + placeID,
 	        dataType: 'json'
 	    });
-	}
+	};
 
 	/**
 	 * Return a list of hotels for a given city name
-	 * 
+	 *
 	 * @param  {string} cityName
 	 * @return {$.Deferred}
 	 */
@@ -54,15 +54,15 @@ window.HotelsSearchService = (function() {
 		return me.getPlacesByName(cityName)
 
 				 .then(function(response) {
-				 	return response.content[0]
+				 	return response.content[0];
 				 }, function() {
-				   	console.warn('Não foi possível recuperar locais no autocomplete para o texto: ' + cityName)
+				   	console.warn('Não foi possível recuperar locais no autocomplete para o texto: ' + cityName);
 				 })
 
 				 .then(function(place) {
 				 	return me.getHotelsByPlaceID(place.id);
 				 });
-	}
+	};
 
 	return HotelsSearchService;
 })();

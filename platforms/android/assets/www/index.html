@@ -29,11 +29,21 @@
         <link rel="stylesheet" type="text/css" href="css/leaflet.css" />
         <link rel="stylesheet" type="text/css" href="css/leaflet.markercluster.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>HotelFinder - Ache o hotel mais próximo de você!</title>
+        <title>SimpleHotelFinder - Find hotels near you!</title>
     </head>
     <body>
         <div class="app">
             <div class="map" id="hotelsMap"></div>
+            <!-- /#hotelsMap -->
+
+            <a href="" class="whereami-button"><img src="img/whereami-icon.png" alt="Where am i?"></a>
+            <!-- /.whereami-button -->
+
+            <div class="notification">
+              <div class="notification-content"></div>
+              <a href="" class="close-button">x</a>
+            </div>
+            <!-- /.notification -->
 
             <div class="hotel-details-modal" id="hotelDetailsModal">
                 <a href="" class="close-button">x</a>
@@ -53,13 +63,15 @@
                     <a href="" class="book-hotel">Book hotel</a>
                 </div>
             </div>
-            <!-- /.#hotelDetailsModal -->
+            <!-- /#hotelDetailsModal -->
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/leaflet.js"></script>
         <script type="text/javascript" src="js/leaflet.markercluster.js"></script>
         <script type="text/javascript" src="js/hotels-map.js"></script>
+        <script type="text/javascript" src="js/whereami-button.js"></script>
+        <script type="text/javascript" src="js/notification-manager.js"></script>
         <script type="text/javascript" src="js/geocoding-service.js"></script>
         <script type="text/javascript" src="js/hotels-search-service.js"></script>
         <script type="text/javascript" src="js/hotel-details-modal.js"></script>

@@ -23,7 +23,7 @@ window.HotelDetailsModal = (function() {
 
 	/**
 	 * Shows the details for the given hotel in the modal
-	 * 
+	 *
 	 * @param  {Object} hotel
 	 * @return {void}
 	 */
@@ -37,42 +37,42 @@ window.HotelDetailsModal = (function() {
 		this.$el.find('.value').text('BRL ' + hotel.price);
 
 		this.$el.show();
-	}
+	};
 
 	/**
 	 * Register the event listeners for the modal behaviors
-	 * 
+	 *
 	 * @return {void}
 	 */
 	HotelDetailsModal.prototype._registerListeners = function() {
 		this.$el.find('.close-button').on('click', this.close.bind(this));
 		this.$el.find('.book-hotel').on('click', this._bookHotel.bind(this));
-	}
+	};
 
 	/**
 	 * Closes the modal
-	 * 
+	 *
 	 * @param  {Event} e
 	 * @return {void}
 	 */
 	HotelDetailsModal.prototype.close = function(e) {
-		e && e.preventDefault();
+		if(e) e.preventDefault();
 
 		this.$el.hide();
 		this.currentHotel = null;
-	}
+	};
 
 	/**
 	 * Opens a window for booking a hotel
-	 * 
+	 *
 	 * @param  {Event} e
 	 * @return {void}
 	 */
 	HotelDetailsModal.prototype._bookHotel = function(e) {
-		e && e.preventDefault();
+		if(e) e.preventDefault();
 
 		window.open(this.options.bookHotelUrl.replace('{ID}', this.currentHotel.hid));
-	}
+	};
 
 	return HotelDetailsModal;
 })();

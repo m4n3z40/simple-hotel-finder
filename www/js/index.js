@@ -30,14 +30,15 @@ window.app = (function() {
     function onDeviceReady() {
         notificationManager = new NotificationManager();
 
+        hotelDetailsModal = new HotelDetailsModal();
+
         map = new HotelsMap({
             onLocationChangeHandler: onLocationChangeHandler,
             onLocationErrorHandler: onLocationErrorHandler,
-            onHotelClickHandler: onHotelClickHandler
+            onHotelClickHandler: hotelDetailsModal.showHotel.bind(hotelDetailsModal)
         });
 
         whereAmIButton = new WhereAmIButton({ mapInstance: map });
-        hotelDetailsModal = new HotelDetailsModal();
 
         map.initialize();
 
@@ -69,7 +70,7 @@ window.app = (function() {
      * @return {void}
      */
     function onLocationErrorHandler(error) {
-        alert(error.message);
+        notificationManager.show(error.message);
     }
 
     /**
@@ -105,17 +106,6 @@ window.app = (function() {
             .then(function() {
                 notificationManager.hide();
             });
-    }
-
-    /**
-     * Tap handler the hotel markers, opens the details modal
-     *
-     * @param  {Object} hotel
-     * @param  {L.Marker} marker
-     * @return {void}
-     */
-    function onHotelClickHandler(hotel, marker) {
-        hotelDetailsModal.showHotel(hotel);
     }
 
     //Exposed App methods
