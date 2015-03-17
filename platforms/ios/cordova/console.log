@@ -98,3 +98,69 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
 
 2015-03-16 23:59:45.275 SimpleHotelFinder[6706:3457927] Resetting plugins due to page load.
 2015-03-16 23:59:45.345 SimpleHotelFinder[6706:3457927] Finished load of: file:///Users/abaptista/Library/Developer/CoreSimulator/Devices/1D3F4025-A031-4DE9-A4B3-1BD375AF8C6E/data/Containers/Bundle/Application/1C2FDFA8-7E93-471F-B883-1EFE71C18C8D/SimpleHotelFinder.app/www/index.html
+2015-03-17 10:41:29.683 SimpleHotelFinder[8320:5236477] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/abaptista/Library/Developer/CoreSimulator/Devices/1D3F4025-A031-4DE9-A4B3-1BD375AF8C6E/data/Containers/Data/Application/674322E8-DC0C-4BC6-A3C1-2745B37234FD/Library/Cookies/Cookies.binarycookies
+2015-03-17 10:41:29.956 SimpleHotelFinder[8320:5236477] Apache Cordova native platform version 3.8.0 is starting.
+2015-03-17 10:41:29.957 SimpleHotelFinder[8320:5236477] Multi-tasking -> Device: YES, App: YES
+2015-03-17 10:41:29.977 SimpleHotelFinder[8320:5236477] Unlimited access to network resources
+2015-03-17 10:41:29.986 SimpleHotelFinder[8320:5236477] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-03-17 10:41:30.576 SimpleHotelFinder[8320:5236477] Resetting plugins due to page load.
+2015-03-17 10:41:30.767 SimpleHotelFinder[8320:5236477] Finished load of: file:///Users/abaptista/Library/Developer/CoreSimulator/Devices/1D3F4025-A031-4DE9-A4B3-1BD375AF8C6E/data/Containers/Bundle/Application/AA8D9725-C965-4453-8E76-5A718477FFFF/SimpleHotelFinder.app/www/index.html
+2015-03-17 10:41:30.840 SimpleHotelFinder[8320:5236477] locationManager::didFailWithError (null)
+2015-03-17 10:41:56.190 SimpleHotelFinder[8320:5237288] Communications error: <OS_xpc_error: <error: 0x2e8a5f4> { count = 1, contents =
+	"XPCErrorDescription" => <string: 0x2e8a83c> { length = 22, contents = "Connection interrupted" }
+}>
+2015-03-17 10:41:56.192 SimpleHotelFinder[8320:5237044] Terminating since there is no system app.
+2015-03-17 10:44:41.000 SimpleHotelFinder[8518:5276135] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/abaptista/Library/Developer/CoreSimulator/Devices/1D3F4025-A031-4DE9-A4B3-1BD375AF8C6E/data/Containers/Data/Application/E600BFDF-B005-461E-AEAC-8839154D0C0B/Library/Cookies/Cookies.binarycookies
+2015-03-17 10:44:41.057 SimpleHotelFinder[8518:5276135] Apache Cordova native platform version 3.8.0 is starting.
+2015-03-17 10:44:41.057 SimpleHotelFinder[8518:5276135] Multi-tasking -> Device: YES, App: YES
+2015-03-17 10:44:41.058 SimpleHotelFinder[8518:5276135] Unlimited access to network resources
+2015-03-17 10:44:41.061 SimpleHotelFinder[8518:5276135] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-03-17 10:44:41.197 SimpleHotelFinder[8518:5276135] Resetting plugins due to page load.
+2015-03-17 10:44:41.260 SimpleHotelFinder[8518:5276135] Finished load of: file:///Users/abaptista/Library/Developer/CoreSimulator/Devices/1D3F4025-A031-4DE9-A4B3-1BD375AF8C6E/data/Containers/Bundle/Application/966551D4-9F5A-4A6D-9971-FE872739A154/SimpleHotelFinder.app/www/index.html
+2015-03-17 10:44:41.304 SimpleHotelFinder[8518:5276135] locationManager::didFailWithError (null)
+2015-03-17 10:45:07.906 SimpleHotelFinder[8706:5282427] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/abaptista/Library/Developer/CoreSimulator/Devices/1D3F4025-A031-4DE9-A4B3-1BD375AF8C6E/data/Containers/Data/Application/67F14AC8-8172-4CD3-ABF8-5955B4FEDE5D/Library/Cookies/Cookies.binarycookies
+2015-03-17 10:45:07.964 SimpleHotelFinder[8706:5282427] Apache Cordova native platform version 3.8.0 is starting.
+2015-03-17 10:45:07.964 SimpleHotelFinder[8706:5282427] Multi-tasking -> Device: YES, App: YES
+2015-03-17 10:45:07.966 SimpleHotelFinder[8706:5282427] Unlimited access to network resources
+2015-03-17 10:45:07.968 SimpleHotelFinder[8706:5282427] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-03-17 10:45:08.078 SimpleHotelFinder[8706:5282427] Resetting plugins due to page load.
+2015-03-17 10:45:08.143 SimpleHotelFinder[8706:5282427] Finished load of: file:///Users/abaptista/Library/Developer/CoreSimulator/Devices/1D3F4025-A031-4DE9-A4B3-1BD375AF8C6E/data/Containers/Bundle/Application/08F80D16-EF7E-4D11-949B-39DACAE5F94F/SimpleHotelFinder.app/www/index.html
+2015-03-17 10:45:08.187 SimpleHotelFinder[8706:5282427] locationManager::didFailWithError (null)
+2015-03-17 10:45:27.335 SimpleHotelFinder[8706:5286817] Terminating since there is no system app.
+2015-03-17 11:09:34.607 SimpleHotelFinder[9325:5311827] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/abaptista/Library/Developer/CoreSimulator/Devices/1D3F4025-A031-4DE9-A4B3-1BD375AF8C6E/data/Containers/Data/Application/DB8D0325-6566-49DE-A3D4-19BD4948907D/Library/Cookies/Cookies.binarycookies
+2015-03-17 11:09:34.858 SimpleHotelFinder[9325:5311827] Apache Cordova native platform version 3.8.0 is starting.
+2015-03-17 11:09:34.859 SimpleHotelFinder[9325:5311827] Multi-tasking -> Device: YES, App: YES
+2015-03-17 11:09:34.874 SimpleHotelFinder[9325:5311827] Unlimited access to network resources
+2015-03-17 11:09:34.883 SimpleHotelFinder[9325:5311827] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-03-17 11:09:35.504 SimpleHotelFinder[9325:5311827] Resetting plugins due to page load.
+2015-03-17 11:09:35.683 SimpleHotelFinder[9325:5311827] Finished load of: file:///Users/abaptista/Library/Developer/CoreSimulator/Devices/1D3F4025-A031-4DE9-A4B3-1BD375AF8C6E/data/Containers/Bundle/Application/9478D105-8921-4F1B-BFBE-C3940D7A72E2/SimpleHotelFinder.app/www/index.html
+2015-03-17 11:09:35.757 SimpleHotelFinder[9325:5311827] locationManager::didFailWithError (null)
+2015-03-17 11:11:59.075 SimpleHotelFinder[9325:5313313] Terminating since there is no system app.

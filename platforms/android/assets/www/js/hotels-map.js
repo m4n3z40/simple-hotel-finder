@@ -171,6 +171,7 @@ window.HotelsMap = (function() {
         if (!this.userMarker) {
             this.centerOnUserPosition();
             this.userMarker = L.marker(this.latLng);
+			this.userMarker.bindPopup('You are here.');
             this.map.addLayer(this.userMarker);
             return;
         }
