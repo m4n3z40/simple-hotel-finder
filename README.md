@@ -1,2 +1,2 @@
 # simple-hotel-finder
-A example corona application for finding the nearest hotels
+A example cordova application for finding the nearest hotels
